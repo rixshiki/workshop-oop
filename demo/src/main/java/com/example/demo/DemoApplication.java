@@ -13,6 +13,8 @@ public class DemoApplication {
 		GenerateIdService service = ctx.getBean(GenerateIdService.class);
 		System.out.println("===>" + service.counter);
 		service.counter++;
+
+
 	}
 
 }
