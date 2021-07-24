@@ -1,5 +1,6 @@
 package com.example.demo.number;
 
+import com.example.demo.user.UserResponse;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,15 @@ public class IdControllerTest {
         // Act
         DataResponse result
                 = restTemplate.getForObject("/id", DataResponse.class);
-        System.out.println(result);
         // Assert
         assertEquals("XYZ7", result.getId());
+    }
+    @Test
+    void success_with_getUser() {
+        UserResponse result
+                = restTemplate.getForObject("/user", UserResponse.class);
+        // Assert
+        assertEquals("Fake name", result.getName());
+        assertEquals("Bret", result.getUsername());
     }
 }

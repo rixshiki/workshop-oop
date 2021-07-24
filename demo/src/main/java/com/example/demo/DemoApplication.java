@@ -2,13 +2,21 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Random;
 
 @SpringBootApplication
 public class DemoApplication {
+
+	// make spring know REST api
+	@Bean
+	public RestTemplate createRestTemplate() {
+		return new RestTemplateBuilder().build();
+	}
 
 	// make spring know Random
 	@Bean
